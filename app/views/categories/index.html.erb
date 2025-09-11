@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "categories", class: "categories-list" do %>
+  <% @categories.each do |category| %>
+    <%= render category %>
+  <% end %>
+<% end %>

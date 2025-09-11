@@ -1,0 +1,19 @@
+<div class="leftbar">
+  <div class="leftbar-header">
+    <h1>Categories</h1>
+    <%= turbo_frame_tag "new_category", src: new_category_path, loading: "lazy" %>
+  </div>
+
+  <div class="leftbar-content">
+    <div class="categories-list-item categories-list-header">
+      <p class="categories-list-item-name">
+        <strong>Name</strong>
+      </p>
+      <p class="categories-list-item-description">
+        <strong>Description</strong>
+      </p>
+    </div>
+
+    <%= turbo_frame_tag "categories", src: categories_path, loading: "lazy", class: "categories-list" %>
+  </div>
+</div>

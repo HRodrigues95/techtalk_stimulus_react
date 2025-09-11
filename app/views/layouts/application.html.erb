@@ -22,7 +22,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="container">
+    <%= render "shared/leftbar" %>
+
     <%= yield %>
   </body>
 </html>

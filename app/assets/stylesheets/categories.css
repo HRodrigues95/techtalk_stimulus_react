@@ -1,0 +1,52 @@
+.categories-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  max-height: 70% !important;
+  overflow-y: auto;
+
+  position: relative;
+}
+
+.categories-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 4px 8px;
+}
+
+.categories-list-header {
+  background-color: #f0f0f0;
+
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  border-bottom: 1px solid #000;
+}
+
+.categories-list-item:nth-child(even) {
+  background-color: #ffff;
+}
+
+.categories-list-item-name {
+  font-weight: bold;
+  width: 20%;
+}
+
+.categories-list-item-description {
+  font-size: 12px;
+  width: 80%;
+}

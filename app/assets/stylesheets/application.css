@@ -8,3 +8,51 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.content {
+  flex: 1;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.leftbar {
+  width: 300px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+
+  max-height: 95vh;
+
+  position: relative;
+
+  overflow-y: hidden;
+}
+
+.leftbar-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.leftbar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  max-height: 70% !important;
+  overflow-y: auto;
+
+  position: relative;
+}
