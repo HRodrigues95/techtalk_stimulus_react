@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "todos" do %>
+  <% @todos.each do |todo| %>
+    <%= render todo %>
+  <% end %>
+<% end %>

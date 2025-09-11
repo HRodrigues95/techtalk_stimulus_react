@@ -3,5 +3,7 @@
 <div class="content">
   <h1>Simple Todo List</h1>
 
+  <%= render "todos/add" %>
 
+  <%= turbo_frame_tag "todos", src: todos_path, loading: "lazy" %>
 </div>

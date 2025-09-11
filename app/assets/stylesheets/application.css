@@ -34,7 +34,7 @@
   padding: 10px;
   border-radius: 10px;
 
-  max-height: 95vh;
+  height: 95vh;
 
   position: relative;
 
@@ -55,4 +55,8 @@
   overflow-y: auto;
 
   position: relative;
+}
+
+.hidden {
+  display: none !important;
 }

@@ -1,0 +1,9 @@
+<div data-controller="hidden-form">
+  <button class="add-todo-button" data-action="click->hidden-form#toggleForm">
+    Add Todo
+  </button>
+
+  <div class="add-todo-form" data-hidden-form-target="form">
+    <%= turbo_frame_tag "new_todo", src: new_todo_path, loading: "lazy" %>
+  </div>
+</div>

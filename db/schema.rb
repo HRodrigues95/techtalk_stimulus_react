@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_11_064646) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_11_083931) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,4 +20,25 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_11_064646) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "todo_categories", force: :cascade do |t|
+    t.bigint "todo_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_todo_categories_on_category_id"
+    t.index ["todo_id", "category_id"], name: "index_todo_categories_on_todo_id_and_category_id", unique: true
+    t.index ["todo_id"], name: "index_todo_categories_on_todo_id"
+  end
+
+  create_table "todos", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "priority"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "todo_categories", "categories"
+  add_foreign_key "todo_categories", "todos"
 end

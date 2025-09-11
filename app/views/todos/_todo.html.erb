@@ -1,0 +1,25 @@
+<div id="<%= dom_id todo %>" class="todo" data-controller="expand" data-expand-id-value="<%= dom_id todo %>">
+  <div class="todo-header" data-action="click->expand#expand">
+    <p>
+      <strong>
+        <%= todo.name %>
+      </strong>
+    </p>
+  </div>
+
+  <div class="todo-content" data-expand-target="content">
+    <div class="todo-content-info">
+      <p>
+        <strong>Description:</strong>
+        <%= todo.description %>
+      </p>
+
+      <p>
+        <strong>Priority:</strong>
+        <%= todo.priority %>
+      </p>
+    </div>
+
+    <%= button_to "Destroy", todo, method: :delete %>
+  </div>
+</div>
