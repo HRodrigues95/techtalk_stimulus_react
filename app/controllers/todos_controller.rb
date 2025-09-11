@@ -1,9 +1,16 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :set_todo, only: %i[ show edit update destroy complete ]
 
   # GET /todos or /todos.json
   def index
-    @todos = Todo.all.order(created_at: :desc)
+    todos = Todo.all.order(created_at: :desc)
+
+    # Filter out completed todos if hide_completed parameter is present
+    # if params[:hide_completed] == 'true'
+    #   todos = todos.where(completed_at: nil)
+    # end
+
+    @todos_by_date = todos.group_by { |todo| todo.created_at.to_date }
   end
 
   # GET /todos/1 or /todos/1.json
@@ -58,6 +65,17 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream { render :destroy }
+    end
+  end
+
+  # POST /todos/1/complete
+  def complete
+    @todo.complete!
+
+    respond_to do |format|
+      format.turbo_stream { render :complete }
+      format.html { redirect_to todos_path, notice: "Todo was successfully completed.", status: :see_other }
+      format.json { render :show, status: :ok, location: @todo }
     end
   end
 

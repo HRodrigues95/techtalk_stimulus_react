@@ -10,14 +10,70 @@
 }
 
 .todo-header {
-  cursor: pointer;
   background-color: #f0f0f0;
   padding: 10px;
   border-radius: 5px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-header-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  cursor: pointer;
+
+  flex: 1;
 }
 
 .todo-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.date-group {
+  margin-bottom: 30px;
+}
+
+.date-header {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  padding: 10px 0;
+  border-bottom: 2px solid #e0e0e0;
+  text-align: left;
+}
+
+.todos-for-date {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-controls {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 20px;
+}
+
+.filter-controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #495057;
+}
+
+.filter-controls input[type="checkbox"] {
+  transform: scale(1.1);
+  cursor: pointer;
 }

@@ -1,10 +1,16 @@
 <div id="<%= dom_id todo %>" class="todo" data-controller="expand" data-expand-id-value="<%= dom_id todo %>">
-  <div class="todo-header" data-action="click->expand#expand">
-    <p>
-      <strong>
-        <%= todo.name %>
-      </strong>
-    </p>
+  <div class="todo-header" >
+    <div class="todo-header-content" data-action="click->expand#expand">
+      <p>
+        <strong>
+          <%= todo.name %>
+        </strong>
+      </p>
+    </div>
+
+    <% unless todo.completed? %>
+      <%= button_to "Complete", complete_todo_path(todo), method: :post %>
+    <% end %>
   </div>
 
   <div class="todo-content" data-expand-target="content">
@@ -18,6 +24,13 @@
         <strong>Priority:</strong>
         <%= todo.priority %>
       </p>
+
+      <% if todo.completed? %>
+        <p>
+          <strong>Completed at:</strong>
+          <%= todo.completed_at.strftime("%B %d, %Y at %I:%M %p") %>
+        </p>
+      <% end %>
     </div>
 
     <%= button_to "Destroy", todo, method: :delete %>

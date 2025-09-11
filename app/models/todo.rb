@@ -11,4 +11,16 @@ class Todo < ApplicationRecord
     high: 3,
     very_high: 4
   }
+
+  def completed?
+    completed_at.present?
+  end
+
+  def complete!
+    update!(completed_at: Time.current)
+  end
+
+  def incomplete!
+    update!(completed_at: nil)
+  end
 end

@@ -1,5 +1,14 @@
 <%= turbo_frame_tag "todos" do %>
-  <% @todos.each do |todo| %>
-    <%= render todo %>
+  <% @todos_by_date.each do |date, todos| %>
+    <div class="date-group">
+      <h3 class="date-header">
+        <%= format_date_header(date) %>
+      </h3>
+      <div class="todos-for-date">
+        <% todos.each do |todo| %>
+          <%= render todo %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 <% end %>
