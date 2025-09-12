@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@1.22.22",
+  "devDependencies": {
+    "vite": "^5.4.20",
+    "vite-plugin-ruby": "^5.1.1"
+  }
+}
