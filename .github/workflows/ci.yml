@@ -76,6 +76,7 @@ jobs:
       - name: Install packages
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libpq-dev libyaml-dev pkg-config google-chrome-stable
 
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -84,6 +85,15 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      # For frontend
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "yarn"
+      - name: Install npm packages
+        run: npm install
 
       - name: Run tests
         env:
