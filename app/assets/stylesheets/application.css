@@ -60,3 +60,19 @@
 .hidden {
   display: none !important;
 }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-bottom: 10px;
+}
+
+.form-control {
+  flex: 1;
+}
+
+.btn-primary {
+  width: 100%;
+}
