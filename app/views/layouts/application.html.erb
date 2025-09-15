@@ -27,6 +27,7 @@
     <%= vite_client_tag %>
     <%= vite_react_refresh_tag %>
     <%= vite_javascript_tag 'application' %>
+
     <!--
       If using a TypeScript entrypoint file:
         vite_typescript_tag 'application'
@@ -36,12 +37,13 @@
 
       Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
     -->
-
   </head>
 
   <body class="container">
     <%= render "shared/leftbar" %>
 
     <%= yield %>
+
+    <%= render "shared/completed_todos" %>
   </body>
 </html>

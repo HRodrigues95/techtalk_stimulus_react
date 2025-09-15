@@ -1,3 +1,5 @@
 <%= turbo_stream.replace dom_id(@todo) do %>
   <%= render @todo %>
 <% end %>
+
+<%= turbo_stream_action_tag "refresh_react", component: "CompletedTodos", event: "event.todo_completed" %>

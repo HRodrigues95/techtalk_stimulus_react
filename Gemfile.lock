@@ -330,6 +330,8 @@ GEM
     thruster (0.1.15-arm64-darwin)
     thruster (0.1.15-x86_64-linux)
     timeout (0.4.3)
+    turbo-mount (0.4.3)
+      railties (>= 6.0.0)
     turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
@@ -393,6 +395,7 @@ DEPENDENCIES
   solid_queue
   stimulus-rails
   thruster
+  turbo-mount
   turbo-rails
   tzinfo-data
   vite_rails

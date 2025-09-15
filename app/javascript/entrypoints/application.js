@@ -27,3 +27,9 @@ import '@hotwired/turbo-rails'
 
 // Import Stimulus controllers
 import "../controllers/index"
+
+// Import Turbo Mount
+import "../turbo-mount"
+
+// Import Custom Turbo Actions
+import "../turbo-actions"

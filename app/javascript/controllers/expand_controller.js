@@ -7,7 +7,8 @@ export default class extends Controller {
   // Add a static target for the form
   static targets = ["content", "header"]
   static values = {
-    id: String
+    id: String,
+    context: String
   }
 
   connect() {
@@ -21,13 +22,14 @@ export default class extends Controller {
     if (this.contentTarget) {
       this.isExpanded = !this.isExpanded
       this.contentTarget.classList.toggle("hidden")
-      if (this.isExpanded) document.dispatchEvent(new CustomEvent(EXPAND_EVENT, { detail: { id: this.idValue } }))
+      if (this.isExpanded) {
+        document.dispatchEvent(new CustomEvent(EXPAND_EVENT, { detail: { id: this.idValue, context: this.contextValue } }))
+      }
     }
   }
 
   handleExpandEvent(event) {
-    console.log("handleExpandEvent")
-    if (event.detail.id !== this.idValue) {
+    if (event.detail.id !== this.idValue && event.detail.context === this.contextValue) {
       this.contentTarget.classList.add("hidden")
       this.isExpanded = false
     }

@@ -6,11 +6,18 @@ class TodosController < ApplicationController
     todos = Todo.all.order(created_at: :desc)
 
     # Filter out completed todos if hide_completed parameter is present
-    # if params[:hide_completed] == 'true'
-    #   todos = todos.where(completed_at: nil)
-    # end
+    todos = if params[:completed].present? && params[:completed] == "true"
+              todos.where.not(completed_at: nil)
+            else
+              todos.where(completed_at: nil)
+            end
 
-    @todos_by_date = todos.group_by { |todo| todo.created_at.to_date }
+
+    @todos = todos
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @todos }
+    end
   end
 
   # GET /todos/1 or /todos/1.json
