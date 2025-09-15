@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@1.22.22",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.2",
+    "stimulus-vite-helpers": "^3.1.0",
+    "vite": "^5.4.20",
+    "vite-plugin-ruby": "^5.1.1",
+    "vite-plugin-stimulus-hmr": "^3.0.0"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "turbo-mount": "^0.4.3"
+  }
+}
