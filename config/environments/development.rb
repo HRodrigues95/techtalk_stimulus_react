@@ -6,6 +6,8 @@ Rails.application.configure do
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
 
+  config.action_view.preload_links_header = false
+
   # Do not eager load code on boot.
   config.eager_load = false
 
