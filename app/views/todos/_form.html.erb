@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div>
+  <div class='field'>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
+  <div class='field'>
     <%= form.label :description, style: "display: block" %>
-    <%= form.textarea :description %>
+    <%= form.textarea :description, class: "form-control" %>
   </div>
 
-  <div>
+  <div class='field'>
     <%= form.label :priority, style: "display: block" %>
-    <%= form.select :priority, Todo.priorities.keys %>
+    <%= form.select :priority, Todo.priorities.keys, class: "form-control" %>
   </div>
 
-  <div>
+  <div class='field'>
     <%= form.submit %>
   </div>
 <% end %>

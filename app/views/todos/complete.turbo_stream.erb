@@ -2,4 +2,9 @@
   <%= render @todo %>
 <% end %>
 
-<%= turbo_stream_action_tag "refresh_react", component: "CompletedTodos", event: "event.todo_completed" %>
+<%# Refresh the todos list %>
+<%= turbo_stream.replace "todos" do %>
+  <%= turbo_frame_tag "todos", src: todos_path, loading: "lazy" %>
+<% end %>
+
+<%= turbo_stream_action_tag "refresh_react", component: "CompletedTodos", event: "event.todo_changed" %>

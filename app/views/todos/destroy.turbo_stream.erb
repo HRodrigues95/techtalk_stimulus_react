@@ -1,1 +1,3 @@
-<%= turbo_stream.remove @todo %>
+<%= turbo_stream.remove dom_id(@todo) %>
+
+<%= turbo_stream_action_tag "refresh_react", component: "CompletedTodos", event: "event.todo_changed" %>
