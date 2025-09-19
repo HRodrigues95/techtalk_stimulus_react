@@ -36,7 +36,7 @@ const CompletedTodos = () => {
     }
   }, [])
 
-  const handleCompletedEvent = useCallback((event) => {
+  const handleRefreshEvent = useCallback((event) => {
     if (event.detail.component === 'CompletedTodos') getTodos()
   }, [])
 
@@ -44,10 +44,10 @@ const CompletedTodos = () => {
   useEffect(() => {
     getTodos()
 
-    document.addEventListener('event.todo_completed', handleCompletedEvent)
+    document.addEventListener('event.todo_changed', handleRefreshEvent)
 
     return () => {
-      document.removeEventListener('event.todo_completed', handleCompletedEvent)
+      document.removeEventListener('event.todo_changed', handleRefreshEvent)
     }
   }, [])
 

@@ -5,12 +5,14 @@ Turbo.StreamActions.refresh_react = function () {
   const componentName = this.getAttribute("component")
   const eventName = this.getAttribute("event") || 'react:refresh'
 
+  const detail = {
+    component: componentName,
+    target: this.target,
+    timestamp: new Date().toISOString(),
+  }
+
   const refreshEvent = new CustomEvent(eventName, {
-    detail: {
-      component: componentName,
-      target: this.target,
-      timestamp: new Date().toISOString()
-    },
+    detail,
     bubbles: true
   })
 

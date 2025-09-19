@@ -30,3 +30,9 @@
   background-color: #fff;
   z-index: 100;
 }
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
