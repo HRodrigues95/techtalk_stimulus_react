@@ -76,3 +76,8 @@
 .btn-primary {
   width: 100%;
 }
+
+.is-invalid {
+  border-color: #dc3545;
+  background-color: #fff3f4;
+}
