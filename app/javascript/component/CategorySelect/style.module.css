@@ -1,0 +1,14 @@
+.categoryRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  flex: 1;
+}
+
+.categoryItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

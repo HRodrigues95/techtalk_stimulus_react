@@ -3,3 +3,5 @@ export const TodosUrl = (completed = false) => {
 }
 
 export const TodoUrl = (id) => `/todos/${id}`
+
+export const CategoriesUrl = () => `/categories`

@@ -16,7 +16,7 @@ class TodosController < ApplicationController
     @todos = todos
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @todos }
+      format.json { render json: TodoSerializer.render(@todos) }
     end
   end
 
@@ -58,7 +58,8 @@ class TodosController < ApplicationController
     respond_to do |format|
       if @todo.update(todo_params)
         format.html { redirect_to @todo, notice: "Todo was successfully updated.", status: :see_other }
-        format.json { render :show, status: :ok, location: @todo }
+        format.turbo_stream { render :update }
+        format.json { render json: TodoSerializer.render(@todo) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
@@ -95,6 +96,6 @@ class TodosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_params
-      params.expect(todo: [ :name, :description, :priority ])
+      params.expect(todo: [ :name, :description, :priority, category_ids: [] ])
     end
 end

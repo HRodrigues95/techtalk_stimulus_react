@@ -4,6 +4,11 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all.order(created_at: :desc)
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: CategorySerializer.render(@categories) }
+    end
   end
 
   # GET /categories/1 or /categories/1.json
@@ -33,7 +38,7 @@ class CategoriesController < ApplicationController
         else
           format.html { redirect_to @category, notice: "Category was successfully created." }
         end
-        format.json { render :show, status: :created, location: @category }
+        format.json { render json: CategorySerializer.render(@category) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @category.errors, status: :unprocessable_entity }

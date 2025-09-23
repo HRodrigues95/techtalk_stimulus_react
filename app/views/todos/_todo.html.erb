@@ -34,5 +34,7 @@
     </div>
 
     <%= button_to "Destroy", todo, method: :delete %>
+
+    <%= turbo_mount "CategorySelect", props: { todo_id: todo.id, current_categories: CategorySerializer.render(todo.categories) } %>
   </div>
 </div>
